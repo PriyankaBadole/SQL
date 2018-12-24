@@ -1,0 +1,9 @@
+create table customer(customer_id varchar(7) primary key, fname varchar(50), lname varchar(50),
+driving_license_number varchar(50), street_no varchar(10), street_name varchar(50),
+city varchar(50), state varchar(50), country varchar(50), postal_code varchar(10));
+
+create table branch(branch_id varchar(5) primary key, street_no varchar(10), 
+street_name varchar(50), city varchar(50), state varchar(50), country varchar(50), postal_code varchar(10));
+
+create table subcontractor(subcontractor_id varchar(6) primary key, street_no varchar(10),
+street_name varchar(50), city varchar(50), state varchar(50), country varchar(50), postal_code varchar(10));

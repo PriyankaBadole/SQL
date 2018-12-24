@@ -1,0 +1,31 @@
+
+CREATE OR REPLACE PROCEDURE insertsubcontractor(
+	   subcontractor_id IN subcontractor.subcontractor_id%TYPE,
+	   street_no IN subcontractor.street_no%TYPE,
+	   street_name IN subcontractor.street_name%TYPE,
+	   city IN subcontractor.city%TYPE,
+	   state IN subcontractor.state%TYPE,
+	   country IN subcontractor.country%TYPE,
+	   postal_code IN subcontractor.postal_code%TYPE)
+IS
+BEGIN
+
+
+    IF subcontractor_id like 'br___' THEN
+               INSERT INTO subcontractor VALUES (subcontractor_id, street_no, street_name,
+               city, state, country, postal_code);
+             ELSE 
+        dbms_output.put_line ('Incorrect! Please enter branch ID  AS sub___ ');
+    END IF;
+END;
+
+
+  
+Begin
+
+insertsubcontractor('br111', '1726', 'Gumata Nagar', 'Indore', 'Madhya Pradesh', 'India', '452009');
+
+End;
+
+Select * from subcontractor;
+

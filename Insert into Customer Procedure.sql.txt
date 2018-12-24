@@ -1,0 +1,33 @@
+
+CREATE OR REPLACE PROCEDURE insertCustomer(
+	   customer_id IN customer.customer_id%TYPE,
+	   fname IN customer.fname%TYPE,
+	   lname IN customer.lname%TYPE,
+	   driving_license_number IN customer.driving_license_number%TYPE,
+	   street_no IN customer.street_no%TYPE,
+	   street_name IN customer.street_name%TYPE,
+	   city IN customer.city%TYPE,
+	   state IN customer.state%TYPE,
+	   country IN customer.country%TYPE,
+	   postal_code IN customer.postal_code%TYPE)
+IS
+BEGIN
+
+    IF customer_id like 'cust___' THEN
+        INSERT INTO customer VALUES (customer_id, fname, lname, driving_license_number, street_no, street_name, city, state, country, postal_code);
+    ELSE 
+        dbms_output.put_line ('Incorrect! Please enter CustomerID AS cust___ ');
+    END IF;
+END;
+
+-- Procedure Call 
+
+Begin
+
+insertCustomer('cust101', 'Priyanka', 'Badole', '10101010101', '1726', 'Dwarkapuri', 'Indore', 'Madhya Pradesh', 'India', '452009');
+
+End;
+
+--Display Data
+
+Select * from customer ;
