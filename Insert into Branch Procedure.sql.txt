@@ -1,0 +1,29 @@
+CREATE OR REPLACE PROCEDURE insertBranch(
+	   branch_id IN branch.branch_id%TYPE,
+	   street_no IN branch.street_no%TYPE,
+	   street_name IN branch.street_name%TYPE,
+	   city IN branch.city%TYPE,
+	   state IN branch.state%TYPE,
+	   country IN branch.country%TYPE,
+	   postal_code IN branch.postal_code%TYPE)
+IS
+BEGIN
+
+
+    IF branch_id like 'br___' THEN
+               INSERT INTO branch VALUES (branch_id, street_no, street_name,
+               city, state, country, postal_code);
+             ELSE 
+        dbms_output.put_line ('Incorrect! Please enter branch ID  AS br___ ');
+    END IF;
+END;
+
+-- Procedure Call Branch 
+  
+Begin
+
+insertBranch('br111', '1726', 'Gumata Nagar', 'Indore', 'Madhya Pradesh', 'India', '452009');
+
+End;
+
+Select * from branch ;
